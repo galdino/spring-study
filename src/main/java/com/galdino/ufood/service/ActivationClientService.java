@@ -5,11 +5,15 @@ import com.galdino.ufood.notification.Notifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class ActivationClientService {
 
-    @Autowired(required = false)
-    private Notifier notifier;
+//    @Autowired(required = false)
+    @Autowired
+//    private Notifier notifier;
+    private List<Notifier> notifiers;
 
 //    @Autowired
 //    public ActivationClientService(Notifier notifier) {
@@ -23,11 +27,14 @@ public class ActivationClientService {
     public void activate(Client client) {
         client.activate();
 
-        if (notifier != null) {
-            notifier.notify(client, "Your registration in the system is active!");
-        } else {
-            System.out.println("There is no notifier, but the client was activated.");
-        }
+//        notifier.notify(client, "Your registration in the system is active!");
+        notifiers.forEach(notifier -> notifier.notify(client, "Your registration in the system is active!"));
+
+//        if (notifier != null) {
+//            notifier.notify(client, "Your registration in the system is active!");
+//        } else {
+//            System.out.println("There is no notifier, but the client was activated.");
+//        }
     }
 
 //    @Autowired

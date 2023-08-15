@@ -4,7 +4,7 @@ import com.galdino.ufood.model.Client;
 import org.springframework.stereotype.Component;
 
 @Component
-public class EmailNotifier implements Notifier {
+public class SMSNotifier implements Notifier {
 
 //    private boolean upperCase;
 //    private String serverHostSmtp;
@@ -20,7 +20,7 @@ public class EmailNotifier implements Notifier {
 //            message = message.toUpperCase();
 //        }
 
-        System.out.printf("Notifying %s through e-mail %s: %s \n", client.getName(), client.getEmail(), message);
+        System.out.printf("Notifying %s through SMS by phone %s: %s \n", client.getName(), client.getPhone(), message);
     }
 
 //    public void setUpperCase(boolean upperCase) {
