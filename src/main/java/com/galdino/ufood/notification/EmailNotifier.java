@@ -1,9 +1,8 @@
 package com.galdino.ufood.notification;
 
 import com.galdino.ufood.model.Client;
-import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class EmailNotifier implements Notifier {
 
 //    private boolean upperCase;

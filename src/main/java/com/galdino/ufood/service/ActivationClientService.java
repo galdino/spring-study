@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ActivationClientService {
 
-    @Autowired
+    @Autowired(required = false)
     private Notifier notifier;
 
 //    @Autowired
@@ -23,7 +23,11 @@ public class ActivationClientService {
     public void activate(Client client) {
         client.activate();
 
-        notifier.notify(client, "Your registration in the system is active!");
+        if (notifier != null) {
+            notifier.notify(client, "Your registration in the system is active!");
+        } else {
+            System.out.println("There is no notifier, but the client was activated.");
+        }
     }
 
 //    @Autowired
