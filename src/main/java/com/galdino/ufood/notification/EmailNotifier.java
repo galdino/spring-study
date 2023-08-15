@@ -3,6 +3,7 @@ package com.galdino.ufood.notification;
 import com.galdino.ufood.model.Client;
 import org.springframework.stereotype.Component;
 
+//@Primary
 @Component
 public class EmailNotifier implements Notifier {
 
