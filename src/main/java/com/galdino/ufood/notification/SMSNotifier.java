@@ -1,10 +1,11 @@
 package com.galdino.ufood.notification;
 
 import com.galdino.ufood.model.Client;
-import org.springframework.context.annotation.Primary;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Primary
+//@Primary
+@Qualifier("sms")
 @Component
 public class SMSNotifier implements Notifier {
 
