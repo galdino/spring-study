@@ -2,15 +2,17 @@ package com.galdino.ufood.service;
 
 import com.galdino.ufood.model.Client;
 import com.galdino.ufood.notification.Notifier;
+import com.galdino.ufood.notification.NotifierType;
+import com.galdino.ufood.notification.UrgencyLevel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ActivationClientService {
 
 //    @Autowired(required = false)
-    @Qualifier("sms")
+//    @Qualifier("sms")
+    @NotifierType(UrgencyLevel.URGENT)
     @Autowired
     private Notifier notifier;
 //    private List<Notifier> notifiers;

@@ -1,11 +1,11 @@
 package com.galdino.ufood.notification;
 
 import com.galdino.ufood.model.Client;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 //@Primary
-@Qualifier("email")
+//@Qualifier("email")
+@NotifierType(UrgencyLevel.NORMAL)
 @Component
 public class EmailNotifier implements Notifier {
 
