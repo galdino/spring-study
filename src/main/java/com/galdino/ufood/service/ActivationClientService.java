@@ -1,19 +1,18 @@
 package com.galdino.ufood.service;
 
 import com.galdino.ufood.model.Client;
-import com.galdino.ufood.notification.Notifier;
-import com.galdino.ufood.notification.NotifierType;
-import com.galdino.ufood.notification.UrgencyLevel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class ActivationClientService {
 
 //    @Autowired(required = false)
 //    @Qualifier("sms")
-    @NotifierType(UrgencyLevel.NORMAL)
-    @Autowired
-    private Notifier notifier;
+//    @NotifierType(UrgencyLevel.NORMAL)
+//    @Autowired
+//    private Notifier notifier;
 //    private List<Notifier> notifiers;
 
 //    @Autowired
@@ -26,19 +25,25 @@ public class ActivationClientService {
 //    }
 
 //    @PostConstruct
-    public void init() {
-        System.out.println("INIT " + notifier);
-    }
+//    public void init() {
+//        System.out.println("INIT " + notifier);
+//    }
 
 //    @PreDestroy
-    public void destroy() {
-        System.out.println("DESTROY");
-    }
+//    public void destroy() {
+//        System.out.println("DESTROY");
+//    }
+
+    @Autowired
+    private ApplicationEventPublisher eventPublisher;
 
     public void activate(Client client) {
         client.activate();
 
-        notifier.notify(client, "Your registration in the system is active!");
+// We can tell the container that the client is activated.
+        eventPublisher.publishEvent(new ActiveClientEvent(client));
+
+//        notifier.notify(client, "Your registration in the system is active!");
 //        notifiers.forEach(notifier -> notifier.notify(client, "Your registration in the system is active!"));
 
 //        if (notifier != null) {
