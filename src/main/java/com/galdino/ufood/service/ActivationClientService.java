@@ -12,7 +12,7 @@ public class ActivationClientService {
 
 //    @Autowired(required = false)
 //    @Qualifier("sms")
-    @NotifierType(UrgencyLevel.URGENT)
+    @NotifierType(UrgencyLevel.NORMAL)
     @Autowired
     private Notifier notifier;
 //    private List<Notifier> notifiers;
