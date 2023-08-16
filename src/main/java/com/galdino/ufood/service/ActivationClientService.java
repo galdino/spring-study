@@ -5,9 +5,8 @@ import com.galdino.ufood.notification.Notifier;
 import com.galdino.ufood.notification.NotifierType;
 import com.galdino.ufood.notification.UrgencyLevel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class ActivationClientService {
 
 //    @Autowired(required = false)
@@ -25,6 +24,16 @@ public class ActivationClientService {
 //    public ActivationClientService(String any) {
 //
 //    }
+
+//    @PostConstruct
+    public void init() {
+        System.out.println("INIT " + notifier);
+    }
+
+//    @PreDestroy
+    public void destroy() {
+        System.out.println("DESTROY");
+    }
 
     public void activate(Client client) {
         client.activate();
