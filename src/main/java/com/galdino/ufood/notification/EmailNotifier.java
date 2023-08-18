@@ -1,6 +1,7 @@
 package com.galdino.ufood.notification;
 
 import com.galdino.ufood.model.Client;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,11 @@ import org.springframework.stereotype.Component;
 @NotifierType(UrgencyLevel.NORMAL)
 @Component
 public class EmailNotifier implements Notifier {
+
+    @Value("${email.notifier.server-host}")
+    private String host;
+    @Value("${email.notifier.server-port}")
+    private int port;
     public EmailNotifier() {
         System.out.println("PROD EmailNotifier");
     }
@@ -27,6 +33,8 @@ public class EmailNotifier implements Notifier {
 //        if (upperCase) {
 //            message = message.toUpperCase();
 //        }
+        System.out.println("Host:" + host);
+        System.out.println("Port:" + port);
 
         System.out.printf("Notifying %s through e-mail %s: %s \n", client.getName(), client.getEmail(), message);
     }
